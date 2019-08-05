@@ -5,6 +5,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.springsecurity.model.Role;
@@ -24,10 +25,11 @@ public class SampleTest {
 		
 		User usr = new  User();
 		
-		usr.setFirstName("DINESH");
+		usr.setFirstName("SURYA");
 		usr.setIsActive(1);
 		usr.setLastName("S");
-		usr.setPassword("$2a$10$pnty63IkJgeQVRpvIUSl7uRQ2/33YmqzyT8ZfKGLHoukEc5aeZud");
+		String password = new BCryptPasswordEncoder().encode("12345");
+		usr.setPassword(password);
 		
 		Role role = new Role();
 		
